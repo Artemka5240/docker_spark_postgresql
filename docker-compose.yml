@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres
+    environment:
+      POSTGRES_USER: pyspark_user
+      POSTGRES_PASSWORD: pyspark_password
+      POSTGRES_DB: pyspark_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./new_init.sql:/docker-entrypoint-initdb.d/new_init.sql
+
+  pyspark:
+    build: ..
+    container_name: pyspark
+    environment:
+      SPARK_MASTER: "local[*]"
+    depends_on:
+      - postgres
+    volumes:
+      - ./app:/app
+    command: >
+      bash -c "spark-submit /app/main.py"
+
+volumes:
+  postgres_data:
