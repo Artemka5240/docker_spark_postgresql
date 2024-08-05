@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS employee_data (
 );
 
 INSERT INTO employee_data (first_name, last_name, position, salary, hire_date) VALUES
-('Alice', 'Johnson', 'Software Engineer', 80000.00, '2020-01-15'),
+('CHIDA', 'Johnson', 'Software Engineer', 80000.00, '2020-01-15'),
 ('Bob', 'Smith', 'Data Scientist', 95000.00, '2019-06-20'),
 ('Charlie', 'Brown', 'Product Manager', 105000.00, '2018-07-30'),
 ('David', 'Williams', 'Data Engineer', 85000.00, '2021-03-10'),

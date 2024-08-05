@@ -12,15 +12,26 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./new_init.sql:/docker-entrypoint-initdb.d/new_init.sql
+      - ./new_init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  clickhouse:
+    image: yandex/clickhouse-server:latest
+    container_name: clickhouse
+    ports:
+      - "8123:8123"
+      - "9000:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - ./clickhouse_init.sql:/docker-entrypoint-initdb.d/init.sql
 
   pyspark:
-    build: ..
+    build: .
     container_name: pyspark
     environment:
       SPARK_MASTER: "local[*]"
     depends_on:
       - postgres
+      - clickhouse
     volumes:
       - ./app:/app
     command: >
@@ -28,3 +39,4 @@ services:
 
 volumes:
   postgres_data:
+  clickhouse_data:
