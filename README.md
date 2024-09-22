@@ -1,4 +1,4 @@
-# Название проекта
+# Серьезный проект
 
 ![Python Version](https://img.shields.io/badge/python-3.8-blue)
 
