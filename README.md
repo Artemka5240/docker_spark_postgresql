@@ -16,3 +16,8 @@
 git clone https://github.com/username/repo.git
 cd repo
 pip install -r requirements.txt
+```
+
+## 🚀 Использование
+Пример команды для запуска проекта:
+python main.py --option=value
