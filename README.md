@@ -1,8 +1,5 @@
 # Название проекта
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![GitHub stars](https://img.shields.io/github/stars/username/repo)
-![License](https://img.shields.io/github/license/username/repo)
 ![Python Version](https://img.shields.io/badge/python-3.8-blue)
 
 ## 📚 Описание проекта
